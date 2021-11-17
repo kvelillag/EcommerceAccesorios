@@ -1,12 +1,13 @@
-import logo from "./logo.svg";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Login from "./components/login/login";
+import Router from "./components/router/router";
+import Menu from "./components/navbar/navbar";
 
 function App() {
   return (
     <div className="App">
-      <Login />
+      <Menu />
+      <Router />
     </div>
   );
 }
