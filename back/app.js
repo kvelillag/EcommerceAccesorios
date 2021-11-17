@@ -4,10 +4,10 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var database = require("./config/database");
+var auth = require("./auth/main_auth");
 
 var accesoriosRouter = require("./routes/accesorios.router");
-var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
+var adminRouter = require("./routes/admin.router");
 
 var app = express();
 
@@ -21,8 +21,8 @@ app.use(express.static(path.join(__dirname, "public")));
 database.mongoConnect();
 
 // Router
-app.use("/", indexRouter);
-app.use("/users", usersRouter);
+app.use("/administrador", adminRouter);
+app.use(auth);
 app.use("/accesorios", accesoriosRouter);
 
 // catch 404 and forward to error handler
