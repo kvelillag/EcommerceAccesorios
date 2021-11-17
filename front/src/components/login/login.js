@@ -1,6 +1,14 @@
 import React from "react";
+import axios from "axios";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
+import { APIHOST as host } from "../../app.json";
 import "./login.css";
+import { isNull } from "util";
+import Cookies from "universal-cookie";
+import { CalculaTiempoSesion } from "../helper/helper";
+import Loading from "../loading/loading";
+
+const cookies = new Cookies();
 
 export default class Login extends React.Component {
   constructor(props) {
@@ -12,11 +20,32 @@ export default class Login extends React.Component {
     };
   }
   iniciarSesion() {
-    alert(`Usuario: ${this.state.usuario} - Contraseña: ${this.state.pass}`);
+    this.setState({ loading: true });
+    axios
+      .post(`${host}/administrador/login`, {
+        usuario: this.state.usuario,
+        pass: this.state.pass,
+      })
+      .then((response) => {
+        if (isNull(response.data.token)) {
+          alert("Usuarios y/o contraseña inválidos");
+        } else {
+          cookies.set("_s", response.data.token, {
+            path: "/",
+            expires: CalculaTiempoSesion(),
+          });
+        }
+        this.setState({ loading: false });
+      })
+      .catch((err) => {
+        console.log(err);
+        this.setState({ loading: false });
+      });
   }
   render() {
     return (
       <Container id="login-container">
+        <Loading show={this.state.loading} />
         <Row>
           <Col>
             <Row>

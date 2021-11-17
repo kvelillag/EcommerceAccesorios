@@ -21,11 +21,3 @@ export default function AppRouter() {
     </Router>
   );
 }
-
-function Home() {
-  return (
-    <div>
-      <h2 style={{ marginTop: 300 }}>HOME</h2>
-    </div>
-  );
-}
