@@ -18,7 +18,7 @@ export default class Menu extends React.Component {
   }
   render() {
     return (
-      <Navbar fixed="top" id="navbar" bg="primary" variant="dark">
+      <Navbar fixed="top" id="navbar" variant="dark">
         <Container>
           <Navbar.Brand href="#home">Handmade Jewellery</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
