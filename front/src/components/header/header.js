@@ -9,6 +9,10 @@ export default class Header extends React.Component {
     this.state = {};
   }
   render() {
-    return <img id="logo" src={logo} />;
+    return (
+      <Container>
+        <img id="logo" src={logo} />
+      </Container>
+    );
   }
 }

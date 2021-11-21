@@ -19,6 +19,7 @@ export default class Login extends React.Component {
       pass: "",
     };
   }
+
   iniciarSesion() {
     this.setState({ loading: true });
     axios
@@ -34,6 +35,7 @@ export default class Login extends React.Component {
             path: "/",
             expires: CalculaTiempoSesion(),
           });
+          this.props.history.push("/accesorios");
         }
         this.setState({ loading: false });
       })
@@ -42,6 +44,7 @@ export default class Login extends React.Component {
         this.setState({ loading: false });
       });
   }
+
   render() {
     return (
       <Container id="login-container">

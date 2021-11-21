@@ -1,0 +1,24 @@
+#accesorios-container {
+  margin-top: 50px;
+}
+
+#accesorios-buscar-container,
+#accesorios-crear-container {
+  margin-top: 50px;
+}
+
+.react-bs-table-sizePerPage-dropdown .dropdown-toggle {
+  float: left;
+  margin-bottom: 20px;
+}
+
+.search-label {
+  float: right;
+  padding-bottom: 10px;
+  font-size: 0;
+}
+
+#accesorios-crear-container .form-label {
+  float: left;
+  margin-bottom: 10px;
+}

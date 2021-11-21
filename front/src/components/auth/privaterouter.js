@@ -6,7 +6,7 @@ const checkAuth = () => {
   return !getSession() ? false : true;
 };
 
-export default class PrivateRouter extends React.Component {
+export default class PrivateRoute extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -19,23 +19,22 @@ export default class PrivateRouter extends React.Component {
       auth: checkAuth() && !this.state.auth,
     });
   }
+
   render() {
     const { component: Component, ...rest } = this.props;
+
     return (
       <Route
         {...rest}
-        render={(props) => {
+        render={(props) =>
           this.state.auth ? (
             <Component {...props} />
           ) : (
             <Redirect
-              to={{
-                pathName: "/login",
-                state: { from: this.props.localization },
-              }}
+              to={{ pathname: "/login", state: { from: this.props.location } }}
             />
-          );
-        }}
+          )
+        }
       />
     );
   }
