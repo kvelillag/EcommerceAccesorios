@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Nav, Row } from "react-bootstrap";
 import Buscar from "./crud/buscar";
 import Crear from "./crud/crear";
+import Editar from "./crud/editar";
 import "./accesorios.css";
 
 export default class Accesorios extends React.Component {
@@ -9,12 +10,23 @@ export default class Accesorios extends React.Component {
     super(props);
     this.state = {
       currentTab: "buscar",
+      _id: null,
     };
     this.changeTab = this.changeTab.bind(this);
+    this.setIdAccesorio = this.setIdAccesorio.bind(this);
+    this.getIdAccesorio = this.getIdAccesorio.bind(this);
   }
 
   changeTab(tab) {
     this.setState({ currentTab: tab });
+  }
+
+  setIdAccesorio(id) {
+    this.setState({ _id: id });
+  }
+
+  getIdAccesorio() {
+    return this.state._id;
   }
 
   render() {
@@ -37,9 +49,17 @@ export default class Accesorios extends React.Component {
         </Row>
         <Row>
           {this.state.currentTab === "buscar" ? (
-            <Buscar />
-          ) : (
+            <Buscar
+              changeTab={this.changeTab}
+              setIdAccesorio={this.setIdAccesorio}
+            />
+          ) : this.state.currentTab === "crear" ? (
             <Crear changeTab={this.changeTab} />
+          ) : (
+            <Editar
+              changeTab={this.changeTab}
+              getIdAccesorio={this.getIdAccesorio}
+            />
           )}
         </Row>
       </Container>
