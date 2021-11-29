@@ -10,7 +10,13 @@ export default class Accesorios extends React.Component {
     this.state = {
       currentTab: "buscar",
     };
+    this.changeTab = this.changeTab.bind(this);
   }
+
+  changeTab(tab) {
+    this.setState({ currentTab: tab });
+  }
+
   render() {
     return (
       <Container id="accesorios-container">
@@ -29,7 +35,13 @@ export default class Accesorios extends React.Component {
             </Nav.Item>
           </Nav>
         </Row>
-        <Row>{this.state.currentTab === "buscar" ? <Buscar /> : <Crear />}</Row>
+        <Row>
+          {this.state.currentTab === "buscar" ? (
+            <Buscar />
+          ) : (
+            <Crear changeTab={this.changeTab} />
+          )}
+        </Row>
       </Container>
     );
   }
