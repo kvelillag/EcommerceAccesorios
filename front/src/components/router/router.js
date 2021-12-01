@@ -3,12 +3,14 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Login from "../login/login";
 import PrivateRouter from "../auth/privaterouter";
 import Accesorios from "../accesorios/index";
+import Home from "../pages/home";
 
 export default function AppRouter() {
   return (
     <Router>
       <Switch>
-        <Route exact path={["/", "/login"]} component={Login} />
+        <Route exact path={["/"]} component={Home} />
+        <Route exact path={["/login"]} component={Login} />
         <PrivateRouter exact path={["/accesorios"]} component={Accesorios} />
         <Route
           path={"*"}
