@@ -122,7 +122,7 @@ export default class Buscar extends React.Component {
         />
         <Loading show={this.state.loading} />
         <Row>
-          <h1>Buscar accesorios</h1>
+          <h2>Buscar accesorios</h2>
         </Row>
         <Row>
           <DataGrid
