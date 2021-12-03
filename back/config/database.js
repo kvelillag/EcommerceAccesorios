@@ -5,8 +5,8 @@ const port = "27017";
 const db = "accesorios";
 
 const remoteHost = "cluster0.flzps.mongodb.net";
-const remoteUser = "HJADMIN";
-const remotePass = "hjadmin";
+const remoteUser = "ADMIN";
+const remotePass = "admin";
 const remoteDb = "accesorios";
 
 exports.mongoConnect = () => {
