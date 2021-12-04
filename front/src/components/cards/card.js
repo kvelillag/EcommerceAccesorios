@@ -10,10 +10,7 @@ export default class AccesorioCard extends React.Component {
   render() {
     return (
       <Card id="accesorio-card" style={{ width: "18rem" }}>
-        <Card.Img
-          variant="top"
-          src={require(`../img/imgProductos/${this.props.url}`).default}
-        />
+        <Card.Img variant="top" src={`${this.props.url}`} />
         <Card.Body>
           <Card.Title>{this.props.title}</Card.Title>
           <Card.Text>Detalle: {this.props.description}</Card.Text>
