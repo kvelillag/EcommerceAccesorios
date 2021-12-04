@@ -1,7 +1,6 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
 import "./card.css";
-import anillo from "../img/imgProductos/anillo-diamante_café.jpg";
 
 export default class AccesorioCard extends React.Component {
   constructor(props) {

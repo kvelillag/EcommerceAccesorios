@@ -9,6 +9,7 @@ var cors = require("cors");
 
 var accesoriosRouter = require("./routes/accesorios.router");
 var adminRouter = require("./routes/admin.router");
+var homeRouter = require("./routes/home.router");
 
 var app = express();
 
@@ -23,6 +24,7 @@ app.use(cors());
 database.mongoConnect();
 
 // Router
+app.use("/home", homeRouter);
 app.use("/administrador", adminRouter);
 app.use(auth);
 app.use("/accesorios", accesoriosRouter);

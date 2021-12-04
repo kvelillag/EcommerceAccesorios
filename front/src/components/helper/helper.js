@@ -63,3 +63,9 @@ export const request = {
     });
   },
 };
+
+export const requestHome = {
+  get: function (services) {
+    return axios.get(`${host}${services}`);
+  },
+};
